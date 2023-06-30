@@ -1,5 +1,7 @@
-// eslint-disable-next-line no-unused-vars
-import  React, {useState} from 'react';
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import  {useState} from 'react';
+
 import './style.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
   })
 
   const navigate = useNavigate()
-  // eslint-disable-next-line no-unused-vars
+  
   const [error, setError] = useState('')
 
   const handleSubmit = (event) => {
