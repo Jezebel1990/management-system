@@ -20,7 +20,7 @@ app.use(_express["default"].json());
 var connection = _mysql["default"].createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'je245b13',
+  password: 'root',
   database: 'signup'
 });
 
