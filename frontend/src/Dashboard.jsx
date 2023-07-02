@@ -22,7 +22,7 @@ function Dashboard() {
                     </li>
 
                     <li>
-                        <Link to="/employee" className="nav-link px-0 align-middle text-white">
+                        <Link to="/" className="nav-link px-0 align-middle text-white">
                             <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Gestão de funcionários</span> </Link>
                             </li>
                     <li>

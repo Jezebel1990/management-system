@@ -23,9 +23,9 @@ useEffect(()=> {
     axios.get('http://localhost:8081/get/'+id)
     .then(res => {
       setData({...data, name: res.data.Result[0].name,
-        email: res.data.Result[0].email,
-        address: res.data.Result[0].address,
-        salary: res.data.Result[0].salary
+              email: res.data.Result[0].email,
+              address: res.data.Result[0].address,
+              salary: res.data.Result[0].salary
     })
     })
     .catch(err =>console.log(err));
@@ -35,9 +35,12 @@ useEffect(()=> {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-     axios.post('http://localhost:8081/update', data)
+     axios.put('http://localhost:8081/update/'+id, data)
      .then(res => {
-       navigate('/employee')
+          if(res.data.Status === "Success") {
+                  navigate('/employee')
+
+      }
      })
     .catch(err => console.log(err));
   
@@ -79,4 +82,4 @@ useEffect(()=> {
 
 
 
-export default EmployeeEdit
+export default EmployeeEdit;

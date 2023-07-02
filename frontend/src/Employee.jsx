@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios';
@@ -20,6 +21,18 @@ function Employee() {
     })
     .catch(err => console.log(err));
   }, [])
+
+  const handleDelete = (id) => {
+    axios.delete('http://localhost:8081/delete/'+id)
+    .then(res => {
+      if(res.data.Status === "Success") {
+        window.location.reload(true);
+      } else {
+        alert("Error")
+      }
+    } )
+    .catch(err => console.log(err));
+  }
 
   return (
     <div className='px-5 py-3'>
@@ -50,8 +63,8 @@ function Employee() {
       <td>{employee.address}</td>
       <td>{employee.salary}</td>
      <td>
-      <Link to={`employeeEdit/`+employee.id} className='btn btn-primary btn-sm me-2'>editar</Link>
-      <button className='btn btn-sm btn-danger'>deletar</button>
+      <Link to={`/employeeEdit/`+employee.id} className='btn btn-primary btn-sm me-2'>editar</Link>
+      <button onClick={event => handleDelete(employee.id)}  className='btn btn-sm btn-danger'>deletar</button>
       </td>
     </tr>
   })}
