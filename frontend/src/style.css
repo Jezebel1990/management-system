@@ -14,3 +14,9 @@
 .custom-bg {
     background-color: #3f556b;
   }
+
+  .employee_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }

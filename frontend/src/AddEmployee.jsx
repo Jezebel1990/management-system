@@ -27,11 +27,11 @@ const handleSubmit = (event) => {
   formdata.append("image", data.image);
   axios.post('http://localhost:8081/create',formdata)
   .then(res => {
-          navigate('/employee')
+    navigate('/employee')
   })
   .catch(err => console.log(err));
-}
 
+}
   return (
     <div className='d-flex flex-column align-items-center pt-4'>
       <h2>Adicionar Funcionários</h2>
@@ -49,14 +49,14 @@ const handleSubmit = (event) => {
       </div>
 
  <div className='col-12'>
-      <laberl htmlFor='inputPassword4' className='form-label'>Senha:</laberl>
+      <label htmlFor='inputPassword4' className='form-label'>Senha:</label>
       <input type='password' className='form-control' id='inputPassword4' placeholder='******'
       onChange={e => setData({...data, password: e.target.value})} />
  </div>
 
 <div className='col-12'> 
    <label htmlFor='inputSalary' className='form-label'>Salário</label>
-   <input type='text' className='form-control' id='inputSalary' placeholder='R$5000,00' autoComplete='off' onChange={e => setData({...data, salary: e.target.value})}/>
+   <input type='text' className='form-control' id='inputSalary' placeholder='5000' autoComplete='off' onChange={e => setData({...data, salary: e.target.value})}/>
 </div>
 
 <div className='col-12'>
