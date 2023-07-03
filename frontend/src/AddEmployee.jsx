@@ -25,7 +25,7 @@ const handleSubmit = (event) => {
   formdata.append("address", data.address);
   formdata.append("salary", data.salary);
   formdata.append("image", data.image);
-  axios.post('http://localhost:8081/create',formdata)
+  axios.post('http://localhost:8080/create',formdata)
   .then(res => {
     navigate('/employee')
   })

@@ -1,11 +1,40 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './style.css';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Dashboard() {
+    const navigate = useNavigate()
+    axios.defaults.withCredentials = true;
+        useEffect(()=>{
+            axios.get('http://localhost:8080/dashboard')
+            .then(res => {
+                if(res.data.Status === "Success") { /* empty */ 
+                    if(res.data.role === "admin") {
+                        navigate('/');
+                    } else {
+                        const id = res.data.id;
+                        navigate('/employeedetail/'+id)
+                }
+            } else {
+                    navigate('/start')
+                }
+            })
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [])
+
+  const handleLogout = () => {
+     axios.get('http://localhost:8080/logout')
+     // eslint-disable-next-line no-unused-vars
+     .then(res => {
+        navigate('/start')
+     }).catch(err => console.log(err));
+  }
+
   return (
     <div className="container-fluid">
     <div className="row flex-nowrap">
@@ -29,9 +58,9 @@ function Dashboard() {
                         <Link to="profile" className="nav-link px-0 align-middle text-white">
                             <i className="fs-4 bi-person"></i> <span className="ms-1 d-none d-sm-inline">Perfil</span></Link>
                     </li>
-                    <li>
+                    <li onClick={handleLogout}>
                         <a href="#" className="nav-link px-0 align-middle text-white">
-                            <i className="fs-4 bi-power"></i> <span className="ms-1 d-none d-sm-inline">Sair</span> </a>
+                            <i className="fs-4 bi-power"></i> <span className="ms-1 d-none d-sm-inline">Sair</span></a>
                     </li>
                 </ul>
             </div>
@@ -47,4 +76,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default Dashboard;

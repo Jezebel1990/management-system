@@ -20,7 +20,7 @@ function EmployeeEdit() {
 useEffect(()=> {
     // eslint-disable-next-line react-hooks/rules-of-hooks
  
-    axios.get('http://localhost:8081/get/'+id)
+    axios.get('http://localhost:8080/get/'+id)
     .then(res => {
       setData({...data, name: res.data.Result[0].name,
               email: res.data.Result[0].email,
@@ -35,7 +35,7 @@ useEffect(()=> {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-     axios.put('http://localhost:8081/update/'+id, data)
+     axios.put('http://localhost:8080/update/'+id, data)
      .then(res => {
           if(res.data.Status === "Success") {
                   navigate('/employee')
