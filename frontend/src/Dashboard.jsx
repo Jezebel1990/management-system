@@ -17,12 +17,12 @@ function Dashboard() {
                 <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li>
                         <Link to="/" data-bs-toggle="collapse" className="nav-link text-white align-middle px-0">
-                            <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Projetos</span>
+                            <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Painel</span>
                         </Link>
                     </li>
 
                     <li>
-                        <Link to="/" className="nav-link px-0 align-middle text-white">
+                        <Link to="/employee" className="nav-link px-0 align-middle text-white">
                             <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Gestão de funcionários</span> </Link>
                             </li>
                     <li>
