@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React,{useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './style.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -10,24 +9,41 @@ function EmployeeLogin() {
         email: '',
         password: ''
     })
-    axios.defaults.withCredentials = true;
+
+const [token, setToken] = useState('');
+
+useEffect(() => {
+    const storedToken = token
+    setToken(storedToken);
+},[])
+
+
     const navigate = useNavigate()
-    axios.defaults.withCredentials = true;
     const [error, setError] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:8080/employeelogin', values)
+        axios.post('http://localhost:8080/employeelogin', values, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        }
+        
+        
+        )
         .then(res => {
             if(res.data.Status === 'Success') {
                 const id = res.data.id;
-                navigate('/employeedetail/'+id);
+                navigate('/employeedetail/' + id);
             } else {
                 setError(res.data.Error);
             }
         })
-        .catch(err => console.log(err));
-    }
+        .catch((err) => {
+            setError('Erro for login');
+            console.log(err);
+    });
+};
 
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>

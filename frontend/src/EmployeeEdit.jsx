@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios';
-// eslint-disable-next-line no-unused-vars
 import React , {useEffect, useState}from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './style.css';
 
 function EmployeeEdit() {
 
@@ -18,8 +19,6 @@ function EmployeeEdit() {
   const {id} = useParams();
   
 useEffect(()=> {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
- 
     axios.get('http://localhost:8080/get/'+id)
     .then(res => {
       setData({...data, name: res.data.Result[0].name,
@@ -29,8 +28,6 @@ useEffect(()=> {
     })
     })
     .catch(err =>console.log(err));
-
-// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
   const handleSubmit = (event) => {

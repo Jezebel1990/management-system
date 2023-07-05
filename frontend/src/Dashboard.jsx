@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './style.css';
@@ -12,7 +11,7 @@ function Dashboard() {
         useEffect(()=>{
             axios.get('http://localhost:8080/dashboard')
             .then(res => {
-                if(res.data.Status === "Success") { /* empty */ 
+                if(res.data.Status === "Success") { 
                     if(res.data.role === "admin") {
                         navigate('/');
                     } else {
@@ -23,13 +22,10 @@ function Dashboard() {
                     navigate('/start')
                 }
             })
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [])
 
   const handleLogout = () => {
      axios.get('http://localhost:8080/logout')
-     // eslint-disable-next-line no-unused-vars
      .then(res => {
         navigate('/start')
      }).catch(err => console.log(err));

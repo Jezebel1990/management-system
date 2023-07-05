@@ -1,8 +1,9 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './style.css';
 
 function EmployeeDetail() {
     const {id} = useParams();
@@ -14,11 +15,11 @@ function EmployeeDetail() {
         .catch(err => console.log(err));
     })
  const handleLogout = () => {
-    axios.get('http://localhost:8080/logout')
+                axios.get('http://localhost:8080/logout')
     .then(res => {
-        navigate('/start')
+            navigate('/start')
     }).catch(err => console.log(err));
- }
+}
 
   return (
     <div>

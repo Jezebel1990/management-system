@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import  {useState} from 'react';
 
@@ -47,14 +46,11 @@ import { useNavigate } from 'react-router-dom';
   onChange={e => setValues({...values, password: e.target.value})}
 className='form-control rounded-0' />
 </div>
-<input type='checkbox' id='termos' name='termos'/>
-<label htmlFor="termos"> Eu concordo com os termos e políticas</label>
 <button type='submit' className='btn btn-danger w-100 rounded-0'>Logar</button>
-{/* <p>Você concorda com os termos e politicas</p> */}
+<p>Eu concordo com os termos e políticas</p>
 </form>
-        </div>
-      
-    </div>
+</div>
+</div>
   )
 }
 export default Login;

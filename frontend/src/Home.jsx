@@ -1,13 +1,15 @@
-/* eslint-disable no-unused-vars */
-// eslint-disable-next-line no-unused-vars
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import Profile from './Profile';
 
 function Home() {
   const [adminCount, setAdminCount] = useState()
-  const [employeeCount, setEmployeeCount] = useState()
-  const [salary, setSalary] = useState()
+  const [employeeCount, setEmployeeCount] = useState();
+  const [salary, setSalary] = useState();
+  const [email, setEmail] = useState('');
+  const [role, setRole] = useState('');
+
+ 
   useEffect(() => {
    axios.get('http://localhost:8080/adminCount')
    .then(res => {
@@ -24,7 +26,21 @@ axios.get('http://localhost:8080/salary')
   setSalary(res.data[0].sumOfSalary)
 }).catch(err => console.log(err));
 
-  }, [])
+
+axios.get('http://localhost:8080/profile', {
+      params: {
+        email: 'admin@gmail.com',
+      },
+    })
+      .then((response) => {
+        setEmail(response.data.email);
+        setRole(response.data.role);
+      })
+      .catch((error) => {
+        console.error('Error in profile', error);
+      });
+
+}, []);
 
   return (
     <div>
@@ -64,13 +80,13 @@ axios.get('http://localhost:8080/salary')
           <thead>
             <tr>
               <th>Email</th>
-              <th>Ação</th>
+              <th>Função</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Administrador</td>
-              <td>Administrador</td>
+              <td>{email}</td>
+              <td>{role}</td>
             </tr>
           </tbody>
         </table>

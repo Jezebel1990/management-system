@@ -1,13 +1,11 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-// eslint-disable-next-line no-unused-vars
 import axios from 'axios';
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './style.css';
 
 function Employee() {
-  // eslint-disable-next-line no-unused-vars
+ 
   const [data, setData] = useState([])
 
   useEffect(()=> {
@@ -63,8 +61,8 @@ function Employee() {
       <td>{employee.address}</td>
       <td>{employee.salary}</td>
      <td>
-      <Link to={`/employeeEdit/`+employee.id} className='btn btn-primary btn-sm me-2'>editar</Link>
-      <button onClick={e => handleDelete(employee.id)} className='btn btn-sm btn-danger'>deletar</button>
+      <Link to={`/employeeEdit/`+employee.id} className='btn btn-primary btn-sm me-2'>Editar</Link>
+      <button onClick={e => handleDelete(employee.id)} className='btn btn-sm btn-danger'>Deletar</button>
       </td>
     </tr>
   })}
