@@ -10,48 +10,35 @@ function EmployeeLogin() {
         password: ''
     })
 
-const [token, setToken] = useState('');
-
-useEffect(() => {
-    const storedToken = token
-    setToken(storedToken);
-},[])
-
-
+    axios.defaults.withCredentials = true;
     const navigate = useNavigate()
+    axios.defaults.withCredentials = true;
     const [error, setError] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:8080/employeelogin', values, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            }
-        }
-        
-        
-        )
+        axios.post('http://localhost:8080/employeelogin', values)
         .then(res => {
             if(res.data.Status === 'Success') {
                 const id = res.data.id;
-                navigate('/employeedetail/' + id);
+                navigate('/employeedetail/'+id);
             } else {
                 setError(res.data.Error);
             }
         })
-        .catch((err) => {
-            setError('Erro for login');
-            console.log(err);
-    });
-};
+        .catch(err => console.log(err));
+}
 
   return (
-    <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
+    <div className='d-flex justify-content-center align-items-center vh-100 loginPages'>
             <div className='p-3 rounded w-25 border loginForm'>
                 <div className='text-danger'>
                     {error && error}
                 </div>
-                <h2>Login</h2>
+                <div className='d-flex justify-content-between'>
+                <h2>Login</h2> 
+                <p>*Sou funcionário (a)</p>
+                </div>
                 <form onSubmit={handleSubmit}>
                 <div className='mb-3'>
         <label htmlFor='email'><strong>Email</strong></label>
@@ -65,9 +52,8 @@ useEffect(() => {
   onChange={e => setValues({...values, password: e.target.value})}
 className='form-control rounded-0' />
 </div>
-<input type='checkbox' id='termos' name='termos'/>
-<label htmlFor="termos"> Eu concordo com os termos e políticas</label>
-<button type='submit' className='btn btn-danger w-100 rounded-0'>Logar</button>
+<button type='submit' className='btn btn-primary w-100 rounded-0'>Logar</button>
+<p>Eu concordo com os termos e políticas</p>
 </form>
 </div>
 </div>

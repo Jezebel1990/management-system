@@ -32,7 +32,10 @@ import { useNavigate } from 'react-router-dom';
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
         <div className='p-3 rounded w-25 border loginForm'>
+        <div className='d-flex justify-content-between'>
 <h2>Login</h2>
+<p>*Sou administrador (a)</p>
+</div>
 <form onSubmit={handleSubmit}>
     <div className='mb-3'>
         <label htmlFor='email'><strong>Email</strong></label>

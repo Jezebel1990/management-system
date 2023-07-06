@@ -1,25 +1,57 @@
 .loginPage {
-
     background: url('Images/employee.jpg');
     background: linear-gradient(rgba(228, 207, 207, 0.5), rgba(10,10,10,0.5)), url('Images/employee.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
+
+
+.loginPages {
+  background: url('Images/employees.jpg');
+  background: linear-gradient(rgba(228, 207, 207, 0.5), rgba(10,10,10,0.5)), url('Images/employees.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+
+.loginStart {
+  background: url('Images/start.png');
+  background: linear-gradient(rgba(228, 207, 207, 0.5), rgba(3, 3, 3, 0.5)), url('Images/start.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.loginFormStart {
+  background-color: rgba(180,154,141,0.5);
+  color: white;
+}
+
+
+
+
 .loginForm {
     background-color: rgba(94, 94, 95, 0.6);
     color: white;
 }
 
 .custom-bg {
-    background-color: #3f556b;
+  background-color: #3f556b;
   }
 
-  .employee_image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
+.employee_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.empImg {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+}
 
 
 .profile-info {

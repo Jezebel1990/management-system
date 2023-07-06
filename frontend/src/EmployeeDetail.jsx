@@ -15,8 +15,8 @@ function EmployeeDetail() {
         .catch(err => console.log(err));
     })
  const handleLogout = () => {
-                axios.get('http://localhost:8080/logout')
-    .then(res => {
+        axios.get('http://localhost:8080/logout')
+        .then(res => {
             navigate('/start')
     }).catch(err => console.log(err));
 }
