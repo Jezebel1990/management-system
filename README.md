@@ -1,4 +1,4 @@
-# Employee Management System
+# 🧑‍💻 Employee Management System
 
 Welcome, this project  is an full employee management system using React and Node Js.
 
